@@ -9,4 +9,4 @@ Or alternatively, you can add the path of chromedriver.exe manually in the code.
 
 Look for the following line in the code.
 
-driver = webdriver.Chrome("//Add Path Here")
+> driver = webdriver.Chrome("//Add Path Here")
