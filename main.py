@@ -6,7 +6,7 @@ import time
 # You can replace below path with the absolute path
 # to a text file within your computer
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome("./chromedriver")
 driver.get("https://web.whatsapp.com/")
 
 # Replace '<Name>' with the name of your friend
@@ -44,9 +44,11 @@ while True:
             Keys.SPACE
         ).perform()
         time.sleep(waitTime)
+        check_box = driver.find_elements_by_class_name("_22Msk")
+
+        if str(check_box[len(check_box)-1].text).find(safeWord) != -1:
+            print("Stop Word Has been typed")
+            break
     file1.close()
-    check_box = driver.find_elements_by_class_name("eRacY")
-    if check_box[len(check_box) - 1].text == safeWord:
-        break
 
 driver.close()
